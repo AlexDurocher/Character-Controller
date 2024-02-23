@@ -41,7 +41,6 @@ public class PlayerMove : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out hit))
         {
             distanceToGround = hit.distance;
-            GameObject objectHit = hit.collider.gameObject;
             float fixedHeight = transform.position.y + (halfPlayerHeight - hit.distance);
             if (distanceToGround < halfPlayerHeight + 0.1)
             {
@@ -53,6 +52,10 @@ public class PlayerMove : MonoBehaviour
             {
                 grounded = false;
             }
+        }
+        else
+        {
+            grounded = false;
         }
 
         float playerGravity;
